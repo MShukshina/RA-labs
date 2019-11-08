@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Ok service</a>
+  <h2 *ngIf="user">{{ user?.name }}</h2>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" *ngIf="user" (click)="onExit()">
+      <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Выход</a>
+    </li>
+    <li class="nav-item" *ngIf="!user" (click)="onAuth()">
+      <a class="nav-link"
+         href="https://connect.ok.ru/oauth/authorize?client_id=512000154018&scope=VALUABLE_ACCESS;PHOTO_CONTENT&response_type=code&redirect_uri=http://localhost:4200/">
+        <i class="fas fa-sign-in-alt"></i>
+        Вход
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <input *ngIf="user"
+          type="text"
+          class="input"
+          placeholder="Описание фото"
+          (change)="onChangeDescription($event.target.value)"
+          [value]="description"
+         [disabled]="!isSelectPhoto">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item cursor-pointer ml-2" *ngIf="user">
+      <button class="bg-dark text-light border-0"
+              [disabled]="!isSelectPhoto"
+              (click)=onEditPhoto(selectPhotoId)>
+        Изменить описание фото
+      </button>
+    </li>
+    <li class="nav-item cursor-pointer ml-2" *ngIf="user">
+      <button class="bg-dark text-light border-0"
+              disabled="true"
+              [disabled]="!isSelectPhoto"
+              (click)=onDelete(selectPhotoId)>
+        Удалить фото
+      </button>
+    </li>
+    <li class="nav-item cursor-pointer ml-2" *ngIf="user">
+      <button class="bg-dark text-light border-0" (click)="onCreateAlbum('Новый альбом')">
+        Добавить альбом
+      </button>
+    </li>
+  </ul>
+</nav>
+

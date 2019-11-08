@@ -1,0 +1,12 @@
+<div class="photos">
+  <section class="photo"
+           *ngFor="let photo of photos?.photos">
+    <img class="photo-size"
+         src="{{photo?.pic640x480}}"
+         alt="{{photo?.text}}"
+         (click)="onSelectPhoto(photo?.id)">
+    <div>{{photo?.text}}</div>
+    <div class="bg-danger text-light">{{photo?.mark_count}}</div>
+  </section>
+</div>
+

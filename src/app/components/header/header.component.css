@@ -1,0 +1,21 @@
+.input {
+  width: 60%;
+  padding-left: 10px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 150px;
+}
+.header-button {
+  margin-right: 20px;
+  height: 40px;
+}
+.align-right {
+  align-items: flex-end;
+}
+.header-link {
+  color: black;
+  margin-right: 20px;
+}
